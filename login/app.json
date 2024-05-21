@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "login",
+    "slug": "login",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.wanderson_ssilva.login"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0e18e07a-68e2-4a0b-b6f5-aaae7c8398e5"
+      }
+    },
+    "plugins": [
+      "expo-secure-store"
+    ]
+  }
+}
