@@ -2,11 +2,11 @@ const Todo = require('../models/Todo');
 
 class TodoRepository {
   async create(todoData) {
-    const { text, completed } = todoData;
+    const { text, completed = false } = todoData;
 
     const newTodo = new Todo({
-      text: text,
-      completed: completed || false,
+      text,
+      completed,
     });
 
     await newTodo.save();

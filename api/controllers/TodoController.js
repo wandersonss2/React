@@ -10,7 +10,7 @@ exports.getTodoById = async (req, res) => {
   if (todo) {
     res.json(todo);
   } else {
-    res.status(404).json({ error: 'Todo not found' });
+    res.status(404).json({ error: 'Não encontrado' });
   }
 };
 
@@ -29,6 +29,21 @@ exports.deleteTodo = async (req, res) => {
   if (deleted) {
     res.status(204).send();
   } else {
-    res.status(404).json({ error: 'Todo not found' });
+    res.status(404).json({ error: 'Não encontrado' });
+  }
+};
+
+exports.toggleTodo = async (req, res) => {
+  try {
+    const todo = await todoRepository.findById(req.params.id);
+    if (todo) {
+      todo.completed = !todo.completed;
+      const updatedTodo = await todoRepository.updateById(req.params.id, todo);
+      res.json(updatedTodo);
+    } else {
+      res.status(404).json({ error: 'Não encontrado' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
